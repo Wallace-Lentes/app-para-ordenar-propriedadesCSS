@@ -13,36 +13,40 @@ Este é um simples aplicativo de linha de comando para ler propriedades CSS do u
 
 ## Pré-requisitos
 
-Certifique-se de ter o Node.js instalado em sua máquina.
+- Certifique-se de ter o Node.js instalado em sua máquina.
+- Caso não tenha instalado, click aqui para baixa-lo [node.js](https://nodejs.org/pt-br/download) e utilize o arquivo LTS.
 
 ## Como Usar
 
 1. Clone este repositório em sua máquina.
+- Abra o terminal do PowerShell em sua máquina e o seguinte comando: `git clone https://github.com/Wallace-Lentes/app-para-ordenar-propriedadesCSS.git`
 
 2. Abra o terminal na pasta do projeto.
+- Ao abrir o terminal digite o comando: `code .`. Então o arquivo sera aberto no seu Visual Studio Code.
+- Site para Download e informções do Visual Studio Code: https://code.visualstudio.com/
 
-3. Instale as dependências executando o seguinte comando:
-    `npm install axios`
-    `npm install chalk`
-    `npm install readline`
+3. Instale as dependências executando o seguinte comando:<br>
+    `npm install axios`<br>
+    `npm install chalk`<br>
+    `npm install readline`<br>
 
 4. Execute o aplicativo com o seguinte comando:
     `npm start`
 
-5. Digite suas propriedades CSS. Digite "sair" quando terminar.
+5. Digite suas propriedades CSS. Digite "sair" quando terminar.<br>
 Exemplo:
-`Digite suas propriedades de CSS, ao terminar digite "sair" para encerrar:` mensagem exibida no terminal.
-Digite: 
-`font-size`
-`margin`
-`color`
+`Digite suas propriedades de CSS, ao terminar digite "sair" para encerrar:` 'mensagem exibida no terminal.'<br>
+Digite: <br>
+`font-size`<br>
+`margin`<br>
+`color`<br>
 `sair`
 
-6. O aplicativo exibirá as propriedades digitadas em ordem alfabética e numérica.
-Será exibido no terminal:
-`Propriedades ordenadas de A-Z:` na cor azul.
-`color` na cor verde.
-`font-size` na cor verde.
+6. O aplicativo exibirá as propriedades digitadas em ordem alfabética e numérica.<br>
+Será exibido no terminal:<br>
+`Propriedades ordenadas de A-Z:` na cor azul.<br>
+`color` na cor verde.<br>
+`font-size` na cor verde.<br>
 `margin` na cor verde.
 
 ## Bibliotecas Utilizadas
