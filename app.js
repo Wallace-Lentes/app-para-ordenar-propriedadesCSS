@@ -1,41 +1,49 @@
 // importa uma biblioteca que lê uma linha do fluxo de entrada padrão.
 import readline from 'readline';
-
-// importa uma biblioteca que é usado para adicionar cor e estilo ao texto de saida.
+// // importa uma biblioteca que é usado para adicionar cor e estilo ao texto de saida.
 import chalk from 'chalk';
 
-// Cria uma interface para leitura de entrada e saida das propriedades.
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+// Classe para ordenar e exibir as propriedades.
+class SorteioDePropriedades {
+    constructor() {
+        // Cria uma lista vazia.
+        this.propriedadesCSS = [];
+        this.rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+        this.rl.on('close', () => this.exibirPropriedadesOrdenadas());
+    }
 
-// Cria uma lista vazia
-const propriedadesCSS = [];
-
-// Cria uma função para receber as propriedades pelo terminal e preencher a lista.
-function entradaPropriedades(){
-    rl.question('Digite suas propriedade de CSS, ao terminar digite "sair" para encerrar): ', entrada => {
-        // Ao digitar 'sair', o terminal para de pedir para digitar e exibe a lista.
-        if (entrada == "sair") {
-            rl.close();
-        
-        // As propriedades digitadas sarão exibidas em Maiusculo.    
-        } else {
-            propriedadesCSS.push(entrada.toUpperCase());
-            entradaPropriedades();
-        }
-    });
-}
+    iniciar() {
+        this.entradaPropriedades();
+    }
+    
+// Recebe as propriedades pelo terminal e preencher a lista.
+    entradaPropriedades() {
+        this.rl.question('Digite suas propriedades de CSS, ao terminar digite "sair" para encerrar): ', entrada => {
+            // Ao digitar 'sair', o terminal para de pedir para digitar e exibe a lista.
+            if (entrada === 'sair') {
+                this.rl.close();
+            } 
+            // As propriedades digitadas sarão exibidas em Maiusculo.    
+            else {
+                this.propriedadesCSS.push(entrada.toUpperCase());
+                this.entradaPropriedades();
+            }
+        });
+    }
 
 // Quando digitar 'sair', todas as propriedades sarão exibidas em Ordem alfabetica de A-Z e em ordem numerica.
-rl.on('close', () => {
-    const propriedadesOrdenadas = propriedadesCSS.sort();
-    console.log(chalk.blue('\nPropriedades ordenadas de A-Z:'));
-    propriedadesOrdenadas.forEach(propriedade => {
-        console.log(chalk.green(propriedade));
-    });
-    process.exit(0);
-});
+    exibirPropriedadesOrdenadas() {
+        const propriedadesOrdenadas = this.propriedadesCSS.sort();
+        console.log(chalk.blue('\nPropriedades ordenadas de A-Z:'));
+        propriedadesOrdenadas.forEach(propriedade => {
+            console.log(chalk.green(propriedade));
+        });
+        process.exit(0);
+    }
+}
 
-entradaPropriedades();
+const sorter = new SorteioDePropriedades();
+sorter.iniciar();
